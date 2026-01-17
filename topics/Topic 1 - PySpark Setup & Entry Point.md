@@ -1,7 +1,6 @@
-# PySpark - Topic 1: Setup, Entry Point & Reading Spark UI
-
+# Topic 1 - Setup, Entry Point & Reading Spark UI
 ---
-![](images/topic1.png)
+![](1.png)
 ## What PySpark Really Is (and Is Not)
 
 Apache Spark is a **distributed data processing engine written in the JVM**.
