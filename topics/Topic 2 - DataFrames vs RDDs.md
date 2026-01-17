@@ -1,6 +1,6 @@
 # Topic 2 - DataFrames vs RDDs
 
-![](2.png)
+![](images/2.png)
 ## What an RDD REALLY Is
 > An RDD is an **immutable, distributed collection of Python objects** with a lineage graph.
 
@@ -254,4 +254,4 @@ RDD  → If you use RDDs in PySpark, Python is doing the work.
 DF   → If you use DataFrames, Spark is doing the work.
 ```
 ---
-![](2.1.png)
+![](images/2.1.png)
