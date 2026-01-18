@@ -1,6 +1,7 @@
 # Topic 3 - Schema, Columns & Expressions
 ---
->In DataFrames, Spark never executes Python row-by-row.  
+>In DataFrames, Spark **avoids** Python row-by-row execution _unless you force it via UDFs or RDDs_.  
+>
 >You are building an _expression tree_, not running code.
 ---
 
@@ -22,8 +23,8 @@ Without schema → Spark is blind.
 With schema → Spark can reason, optimize, and generate code.
 
 ---
-#### Example: `explicit schema` (Spark always prefer this)
-	> Same Code Avaialble in `pyspark-lab` directory
+#### Example: `explicit schema` (Spark always prefers this)
+	> Same code available in `pyspark-lab` directory
 ```python
 from pyspark.sql import SparkSession
 from pyspark.sql.types import (
