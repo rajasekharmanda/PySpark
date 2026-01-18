@@ -1,5 +1,5 @@
 # Topic 2 - DataFrames vs RDDs
-
+---
 ![](images/2.png)
 ## What an RDD REALLY Is
 > An RDD is an **immutable, distributed collection of Python objects** with a lineage graph.
