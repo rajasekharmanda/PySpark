@@ -5,7 +5,7 @@
 # 2. Navigate to the directory containing this file
 #
 # 3. Run the Spark job using spark-submit:
-#       spark-submit entry_point.py
+#       spark-submit 2_rdd_example.py
 #
 # 4. Output will be printed in the terminal
 # 5. Spark UI will be available while the job runs at:
@@ -18,22 +18,36 @@
 
 from pyspark.sql import SparkSession
 
-# 1. Create SparkSession (entry point)
+# 1. Create Spark session (driver entry point)
 spark = SparkSession.builder \
-    .appName("entry-point-demo") \
-    .master("local[*]") \
+    .appName("RDD-Example") \
     .getOrCreate()
 
-# 2. Create a DataFrame
-df = spark.range(10)
+# 2. Sample data
+data = [
+    ("electronics", 100.0),
+    ("electronics", 200.0),
+    ("clothing", 50.0),
+    ("clothing", 300.0),
+    ("electronics", 150.0),
+]
 
-# 3. Define a transformation (nothing runs yet)
-filtered_df = df.filter("id > 5")
+# 3. Create RDD
+rdd = spark.sparkContext.parallelize(data)
 
-# 4. Trigger execution (ACTION)
-filtered_df.show()
+# 4. Transformations (procedural)
+result_rdd = (
+    rdd
+    .map(lambda x: (x[0], x[1] * 1.18))
+    .filter(lambda x: x[1] > 150)
+)
 
-# 5. Clean shutdown
-# spark.stop()
-# Wait for user input before stopping Spark
-input("Press ENTER to exit Spark...")
+# 5. Action (triggers execution)
+output = result_rdd.collect()
+
+print("RDD RESULT:")
+for row in output:
+    print(row)
+
+# 6. Stop Spark
+spark.stop()
