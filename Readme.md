@@ -69,7 +69,17 @@ Think → Read → Run → Observe → Repeat
 - [`pyspark-lab/3_schema_columns_example.py`](pyspark-lab/3_schema_columns_example.py)
 - [`pyspark-lab/3_pyspark.py`](pyspark-lab/3_pyspark.py)
 
-→ [Deep dive](topics/topic3-schema-columns-expressions.md.md)
+→ [Deep dive](topics/topic3-schema-columns-expressions.md)
 
 ---
 
+## Topic 4 — Reading Data in PySpark (CSV, JSON, Parquet)
+
+**Mental Model**
+- Reading builds plans, not data  
+- Schema defines truth  
+- File format controls optimizer power  
+- Parquet enables skipping (columns + rows)  
+- Convert once, analyze many times  
+
+→ [Deep dive](topics/topic4-readingdatainpySpark.md)
